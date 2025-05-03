@@ -1,0 +1,175 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Notebook as Robot, Info, BookOpen, Phone, Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
+
+interface NavItem {
+  id: string;
+  title: string;
+  icon: React.ReactNode;
+  dropdownItems: { title: string; link: string }[];
+}
+
+const navItems: NavItem[] = [
+  {
+    id: 'home',
+    title: 'Home',
+    icon: <Robot size={20} />,
+    dropdownItems: [
+      { title: 'Latest News', link: '/' },
+      { title: 'Upcoming Events', link: '/' },
+      { title: 'Success Stories', link: '/' },
+    ],
+  },
+  {
+    id: 'about',
+    title: 'About',
+    icon: <Info size={20} />,
+    dropdownItems: [
+      { title: 'Our Story', link: '/' },
+      { title: 'Our Team', link: '/' },
+      { title: 'Our Mission', link: '/' },
+    ],
+  },
+  {
+    id: 'courses',
+    title: 'Courses',
+    icon: <BookOpen size={20} />,
+    dropdownItems: [
+      { title: 'RoboSpark Juniors', link: '/courses/robospark-juniors' },
+      { title: 'RoboBits Explorer', link: '/courses/robobits-explorer' },
+      { title: 'RoboMasters Builder', link: '/courses/robomasters-builder' },
+      { title: 'RoboCoders Pro', link: '/courses/robocoders-pro' },
+      { title: 'RoboNet Innovators', link: '/courses/robonet-innovators' },
+      { title: 'RoboBrains AI', link: '/courses/robobrains-ai' },
+    ],
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
+    icon: <Phone size={20} />,
+    dropdownItems: [
+      { title: 'Get in Touch', link: '/' },
+      { title: 'Locations', link: '/' },
+      { title: 'Support', link: '/' },
+    ],
+  },
+];
+
+const Navbar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const toggleDropdown = (id: string) => {
+    setActiveDropdown(activeDropdown === id ? null : id);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setActiveDropdown(null);
+  };
+
+  const closeDropdowns = () => {
+    setActiveDropdown(null);
+  };
+
+  return (
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+      <div className="bg-white/90 backdrop-blur-sm text-black">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
+            {/* Logo */}
+            <div className="flex items-center">
+              <img src={logo} alt="Logo" className="h-10" />
+            </div>
+
+            {/* Mobile menu button */}
+            <button
+              className="lg:hidden text-white p-2 focus:outline-none"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-6">
+              {navItems.map((item) => (
+                <div key={item.id} className="relative group">
+                  <button
+                    className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-colors duration-200 ${
+                      activeDropdown === item.id
+                        ? 'bg-blue-600/60'
+                        : 'hover:bg-blue-600/30 text-black'
+                    }`}
+                    onClick={() => toggleDropdown(item.id)}
+                  >
+                    {item.icon}
+                    <span className="ml-1">{item.title}</span>
+                  </button>
+
+                  {activeDropdown === item.id && (
+                    <div className="absolute right-0 mt-2 w-48 bg-black/80 backdrop-blur-sm rounded-md shadow-lg py-1 z-10 border border-gray-700">
+                      {item.dropdownItems.map((dropdownItem, index) => (
+                        <Link
+                          key={index}
+                          to={dropdownItem.link}
+                          className="block px-4 py-2 text-sm hover:bg-blue-600/30 transition-colors duration-200 text-white"
+                          onClick={closeDropdowns}
+                        >
+                          {dropdownItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-black/95 backdrop-blur-sm text-white">
+          <div className="container mx-auto px-4 py-2">
+            <nav className="flex flex-col space-y-1">
+              {navItems.map((item) => (
+                <div key={item.id} className="relative">
+                  <button
+                    className={`flex items-center w-full px-3 py-2 rounded-md transition-colors duration-200 ${
+                      activeDropdown === item.id
+                        ? 'bg-blue-600/60'
+                        : 'hover:bg-blue-600/30 text-white'
+                    }`}
+                    onClick={() => toggleDropdown(item.id)}
+                  >
+                    {item.icon}
+                    <span className="ml-2">{item.title}</span>
+                  </button>
+
+                  {activeDropdown === item.id && (
+                    <div className="pl-8 mt-1 mb-2 border-l-2 border-blue-500">
+                      {item.dropdownItems.map((dropdownItem, index) => (
+                        <Link
+                          key={index}
+                          to={dropdownItem.link}
+                          className="block px-4 py-2 text-sm hover:bg-blue-600/30 transition-colors duration-200 text-white"
+                          onClick={toggleMenu}
+                        >
+                          {dropdownItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Navbar;
