@@ -7,26 +7,22 @@ interface VideoBackgroundProps {
 
 const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoUrl, children }) => {
   return (
-    <div className="relative overflow-hidden h-screen">
-      {/* Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="https://images.pexels.com/photos/2085831/pexels-photo-2085831.jpeg"
-        >
-          <source src={videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-      </div>
-      
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Video Background */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src={videoUrl}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      {/* Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10" />
+
       {/* Content */}
-      <div className="relative z-20 h-full">
+      <div className="relative z-20 w-full h-full flex items-center justify-center px-4">
         {children}
       </div>
     </div>

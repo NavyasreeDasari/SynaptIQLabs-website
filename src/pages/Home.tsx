@@ -4,7 +4,7 @@ import TransformingSection from '../components/Innovation';
 import PlatformSection from '../components/PlatformSection';
 import CoursesSection from '../components/CoursesSection';
 import Clients from '../components/Client';
-import ProjectsSection from '../components/ProjectsSection';
+import CurriculumSection from '../components/Curriculum';
 
 
 const Home: React.FC = () => {
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <TransformingSection />
       <PlatformSection />
       <CoursesSection />
-      <ProjectsSection />
+      <CurriculumSection />
       <Clients />
 
     </div>

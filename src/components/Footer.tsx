@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, Notebook as Robot } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Notebook as Robot } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -31,17 +31,12 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                  About Us
+                  ProjectHub
                 </Link>
               </li>
               <li>
                 <Link to="/courses/robospark-juniors" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
                   Courses
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                  Blog
                 </Link>
               </li>
               <li>
@@ -89,10 +84,11 @@ const Footer: React.FC = () => {
                 <Instagram size={20} />
                 <span className="sr-only">Instagram</span>
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                <Youtube size={20} />
-                <span className="sr-only">YouTube</span>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <Linkedin size={20} />
+                <span className="sr-only">LinkedIn</span>
               </a>
+
             </div>
           </div>
         </div>

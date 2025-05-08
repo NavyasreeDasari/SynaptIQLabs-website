@@ -16,11 +16,6 @@ const navItems: NavItem[] = [
     id: 'home',
     title: 'Home',
     icon: <Robot size={20} />,
-    dropdownItems: [
-      { title: 'Latest News', link: '/' },
-      { title: 'Upcoming Events', link: '/' },
-      { title: 'Success Stories', link: '/' },
-    ],
   },
   {
     id: 'about',

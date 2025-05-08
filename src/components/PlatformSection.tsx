@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 import diyKit from '../assets/images/diykit.jpg';
 import programming from '../assets/images/programming.jpg';
 import curriculum from '../assets/images/curriculum.jpg';
@@ -32,13 +31,12 @@ const PlatformSection = () => {
         </p>
       </div>
 
-      {/* Staggered Layout */}
-      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
+      {/* Staggered Layout - updated for uniform grid alignment */}
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
         {features.map((feature, index) => (
           <div
             key={index}
-            className={`group relative overflow-hidden rounded-xl shadow-md transform hover:scale-105 transition-all duration-500 bg-white
-            ${index % 2 === 0 ? 'translate-y-4' : 'translate-y-0'}`}
+            className="group relative overflow-hidden rounded-xl shadow-md transition-all duration-500 bg-white"
           >
             <img
               src={feature.image}
