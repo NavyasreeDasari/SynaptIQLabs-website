@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Import images from your assets folder
-import courseImg1 from '../assets/images/card1.jpg';
+import courseImg1 from '../assets/images/card1.png';
 import courseImg2 from '../assets/images/card2.jpg';
 import courseImg3 from '../assets/images/card3.jpg';
 import courseImg4 from '../assets/images/card4.jpg';
-import courseImg5 from '../assets/images/card5.jpg';
+import courseImg5 from '../assets/images/card5.png';
 import courseImg6 from '../assets/images/card6.jpg';
 
 interface CourseCardProps {

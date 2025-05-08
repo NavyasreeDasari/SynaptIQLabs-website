@@ -58,15 +58,17 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-blue-400 flex-shrink-0 mt-1" />
-                <span className="text-gray-400">123 Innovation Way, Tech City, TC 12345</span>
+                <span className="text-gray-400">3rd floor, 25/529, Rd Number 1, opp. GHMC park, above HDFC Bank,
+                   Kukatpally Housing Board Colony, Kukatpally, Hyderabad, Telangana 500072
+                </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-blue-400 flex-shrink-0" />
-                <span className="text-gray-400">(123) 456-7890</span>
+                <span className="text-gray-400">+91 8639189175</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-blue-400 flex-shrink-0" />
-                <span className="text-gray-400">info@robolearn.tech</span>
+                <span className="text-gray-400">info@synaptiq.in</span>
               </li>
             </ul>
           </div>

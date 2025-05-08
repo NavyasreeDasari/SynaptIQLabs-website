@@ -5,8 +5,6 @@ import { ArrowLeft } from 'lucide-react';
 
 const CoursePage: React.FC = () => {
   const { courseSlug } = useParams<{ courseSlug: string }>();
-  
-  // Find the course data based on the slug
   const course = courseData.find((c) => c.slug === courseSlug) as CourseDataItem;
 
   if (!course) {
@@ -14,8 +12,8 @@ const CoursePage: React.FC = () => {
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <h1 className="text-2xl font-bold mb-4">Course Not Found</h1>
         <p className="mb-8">The course you're looking for doesn't exist.</p>
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
         >
           <ArrowLeft size={20} className="mr-2" />
@@ -25,10 +23,114 @@ const CoursePage: React.FC = () => {
     );
   }
 
+  const renderCourseContent = () => {
+    const content: Record<string, JSX.Element> = {
+      'robospark-juniors': (
+        <>
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 animate-pulse">🔰 Why Choose RoboSpark Juniors?</h2>
+          <p className="mb-4">An engaging introduction to the world of coding through animations and games. Designed to build logical thinking in a fun, friendly environment.</p>
+          <h3 className="text-xl font-semibold mb-2">🚀 Kids' Journey at RoboSpark Juniors</h3>
+          <ul className="list-disc list-inside mb-4">
+            <li>Create stories, games, and cartoons</li>
+            <li>Learn coding concepts visually</li>
+            <li>Develop algorithmic thinking early</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2">🎥 Check Out What a Class Looks Like</h3>
+          <p>Children participate in game-based coding, story creation, and interactive problem-solving with vibrant visuals and intuitive interfaces.</p>
+        </>
+      ),
+      'robobits-explorer': (
+        <>
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 animate-pulse">🔧 Why Choose RoboBits Explorer?</h2>
+          <p className="mb-4">Combines creativity with electronics. Students learn how hardware and coding interact while building real circuits and gadgets.</p>
+          <h3 className="text-xl font-semibold mb-2">🚀 Kids' Journey at RoboBits Explorer</h3>
+          <ul className="list-disc list-inside mb-4">
+            <li>Simulate electronic circuits</li>
+            <li>Use Micro:Bit to build projects</li>
+            <li>Explore real-world sensors and inputs</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2">🎥 Check Out What a Class Looks Like</h3>
+          <p>Students experiment in virtual and real environments, creating circuits, coding them, and seeing immediate results.</p>
+        </>
+      ),
+      'robomasters-builder': (
+        <>
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 animate-pulse">🤖 Why Choose RoboMasters Builder?</h2>
+          <p className="mb-4">Empowers students to become actual robot makers. They build and code robots while understanding real-world robotics logic.</p>
+          <h3 className="text-xl font-semibold mb-2">🚀 Kids' Journey at RoboMasters Builder</h3>
+          <ul className="list-disc list-inside mb-4">
+            <li>Build robots from the ground up</li>
+            <li>Learn about sensors, motors, and control logic</li>
+            <li>Compete in challenges and obstacle courses</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2">🎥 Check Out What a Class Looks Like</h3>
+          <p>Sessions involve robot assembly, motion programming, and task execution — all under guided mentorship.</p>
+        </>
+      ),
+      'robocoders-pro': (
+        <>
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 animate-pulse">🖥 Why Choose RoboCoders Pro?</h2>
+          <p className="mb-4">Focuses on embedded systems, real-time coding, and circuit-level understanding using Arduino and C programming.</p>
+          <h3 className="text-xl font-semibold mb-2">🚀 Kids' Journey at RoboCoders Pro</h3>
+          <ul className="list-disc list-inside mb-4">
+            <li>Write code in Arduino IDE</li>
+            <li>Interface sensors and develop prototypes</li>
+            <li>Learn debugging and code structuring</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2">🎥 Check Out What a Class Looks Like</h3>
+          <p>Each session includes structured coding practice, component interfacing, and hands-on building of mini embedded systems.</p>
+        </>
+      ),
+      'robonet-innovators': (
+        <>
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 animate-pulse">🌐 Why Choose RoboNet Innovators?</h2>
+          <p className="mb-4">A deep dive into Internet of Things — where students make devices that sense, communicate, and react via the cloud.</p>
+          <h3 className="text-xl font-semibold mb-2">🚀 Kids' Journey at RoboNet Innovators</h3>
+          <ul className="list-disc list-inside mb-4">
+            <li>Work with ESP8266/ESP32 boards</li>
+            <li>Connect devices to cloud services</li>
+            <li>Automate actions using Blynk and Firebase</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2">🎥 Check Out What a Class Looks Like</h3>
+          <p>Interactive classes featuring cloud-connected systems, smart home setups, and real-time data exchange.</p>
+        </>
+      ),
+      'robobrains-ai': (
+        <>
+          <h2 className="text-2xl font-bold mb-4 text-blue-600 animate-pulse">🧠 Why Choose RoboBrains AI?</h2>
+          <p className="mb-4">Introduces artificial intelligence, machine learning, and Python programming in an intuitive and beginner-friendly way.</p>
+          <h3 className="text-xl font-semibold mb-2">🚀 Kids' Journey at RoboBrains AI</h3>
+          <ul className="list-disc list-inside mb-4">
+            <li>Code in Python</li>
+            <li>Train AI models for voice, face, and object recognition</li>
+            <li>Build intelligent apps and games</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2">🎥 Check Out What a Class Looks Like</h3>
+          <p>Students explore machine learning tools, develop AI-based applications, and interact with real-world data in creative ways.</p>
+        </>
+      ),
+    };
+    return content[course.slug] || <p>{course.fullDescription || course.description}</p>;
+  };
+
+  const renderPillarsSection = () => (
+    <div className="mt-12">
+      <h2 className="text-2xl font-bold mb-6 text-purple-700 animate-pulse">🌟 Pillars of Our Curriculum</h2>
+      <ul className="list-disc list-inside space-y-2 text-gray-700">
+        <li><strong>Hands-on Learning:</strong> Students build, code, test, and innovate in every session.</li>
+        <li><strong>Progressive Skill Development:</strong> Structured levels build from basics to advanced tech.</li>
+        <li><strong>Creativity & Problem-Solving:</strong> Projects enhance critical thinking and innovation.</li>
+        <li><strong>Tech Exposure at an Early Age:</strong> Tools like Arduino, ESP32, Python are introduced early.</li>
+        <li><strong>Project-Based & Outcome-Focused:</strong> Each course ends with capstone projects.</li>
+        <li><strong>Future-Ready Curriculum:</strong> Prepares students with 21st-century STEM skills.</li>
+      </ul>
+    </div>
+  );
+
   return (
     <div className="pt-20 pb-16">
       {/* Hero Section */}
-      <div 
+      <div
         className="h-[50vh] bg-cover bg-center relative"
         style={{ backgroundImage: `url(${course.imageUrl})` }}
       >
@@ -49,98 +151,8 @@ const CoursePage: React.FC = () => {
           {/* Main Content */}
           <div className="md:w-2/3">
             <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-              <h2 className="text-2xl font-bold mb-4">Course Overview</h2>
-              <p className="text-gray-700 mb-6">
-                {course.fullDescription || course.description}
-              </p>
-              
-              <h3 className="text-xl font-semibold mb-3">What You'll Learn</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">•</span>
-                  <span>Fundamentals of robotics design and construction</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">•</span>
-                  <span>Programming concepts specific to robotic control</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">•</span>
-                  <span>Sensor integration and environmental interaction</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">•</span>
-                  <span>Problem-solving through engineering challenges</span>
-                </li>
-              </ul>
-              
-              <h3 className="text-xl font-semibold mb-3">Course Structure</h3>
-              <p className="text-gray-700 mb-4">
-                This {course.level * 4}-week course consists of weekly sessions, each building on previous knowledge.
-                Students will complete a capstone project that demonstrates their new skills.
-              </p>
-            </div>
-            
-            {/* Curriculum */}
-            <div className="bg-white rounded-xl shadow-md p-8">
-              <h2 className="text-2xl font-bold mb-6">Curriculum</h2>
-              
-              <div className="space-y-4">
-                {[1, 2, 3, 4].map((week) => (
-                  <div key={week} className="border-b border-gray-200 pb-4">
-                    <h3 className="font-semibold mb-2">Week {week}</h3>
-                    <p className="text-gray-700">
-                      {week === 1 && "Introduction to core concepts and basic build techniques"}
-                      {week === 2 && "Sensor integration and environmental interaction"}
-                      {week === 3 && "Programming logic and control mechanisms"}
-                      {week === 4 && "Final project design and implementation"}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          
-          {/* Sidebar */}
-          <div className="md:w-1/3">
-            <div className="bg-white rounded-xl shadow-md p-6 sticky top-24">
-              <div className="mb-6">
-                <h3 className="font-semibold text-gray-800 mb-2">Course Details</h3>
-                <ul className="space-y-3">
-                  <li className="flex justify-between">
-                    <span className="text-gray-600">Duration:</span>
-                    <span className="font-medium">{course.level * 4} Weeks</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-gray-600">Level:</span>
-                    <span className="font-medium">{course.level}</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-gray-600">Format:</span>
-                    <span className="font-medium">In-person & Online</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span className="text-gray-600">Prerequisites:</span>
-                    <span className="font-medium">
-                      {course.level > 1 ? `Level ${course.level - 1}` : 'None'}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              
-              <button className="w-full py-3 rounded-md text-white font-medium bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-md shadow-blue-500/20 transform hover:scale-[1.02]">
-                Enroll Now
-              </button>
-              
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                <h3 className="font-semibold text-gray-800 mb-3">Need Help?</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Our advisors are available to help you choose the right course for your needs.
-                </p>
-                <button className="w-full py-2 border border-blue-500 text-blue-600 rounded-md font-medium hover:bg-blue-50 transition-colors duration-300">
-                  Contact an Advisor
-                </button>
-              </div>
+              {renderCourseContent()}
+              {renderPillarsSection()}
             </div>
           </div>
         </div>
