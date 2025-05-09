@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <VideoBackground videoUrl={videoUrl}>
-      <div className="container mx-auto px-4 h-full flex items-center pt-20">
+      <div id="home" className="container mx-auto px-4 h-full flex items-center pt-20">
         <div className="max-w-xl text-white text-center sm:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
             <span className="block">Build The</span>
@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
             From beginners to advanced innovators, start your journey today.
           </p>
           <Link
-            to="https://forms.gle/your-google-form-link" // replace with actual link later
+            to="https://forms.gle/LLmtWg4ANpGwHC9Z6"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"

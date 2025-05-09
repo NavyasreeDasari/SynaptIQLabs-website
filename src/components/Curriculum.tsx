@@ -20,7 +20,7 @@ const CurriculumSection = () => {
           <p className="text-lg text-gray-700 leading-relaxed">
             Our curriculum blends hands-on robotics, coding, and AI with real-world problem-solving.
             Designed for all levels, it inspires curiosity, builds technical skills, and nurtures
-            creativity — preparing students for the future of technology.
+            creativity preparing students for the future of technology.
           </p>
         </div>
       </div>
