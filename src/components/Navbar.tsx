@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Notebook as Robot, Info, BookOpen, Phone, Menu, X } from 'lucide-react';
 import logo from '../assets/icon.png';
 
@@ -51,6 +51,8 @@ const navItems: NavItem[] = [
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleDropdown = (id: string) => {
     setActiveDropdown(activeDropdown === id ? null : id);
@@ -63,6 +65,20 @@ const Navbar: React.FC = () => {
 
   const closeDropdowns = () => {
     setActiveDropdown(null);
+  };
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+    }
+    closeDropdowns();
+    setIsMenuOpen(false);
   };
 
   return (
@@ -89,8 +105,8 @@ const Navbar: React.FC = () => {
                   {item.id === 'home' ? (
                     <a
                       href="#home"
+                      onClick={handleHomeClick}
                       className="flex items-center space-x-1 px-3 py-2 rounded-md transition-colors duration-200 hover:bg-blue-600/30 text-black"
-                      onClick={closeDropdowns}
                     >
                       {item.icon}
                       <span className="ml-1">{item.title}</span>
@@ -146,8 +162,8 @@ const Navbar: React.FC = () => {
                   {item.id === 'home' ? (
                     <a
                       href="#home"
+                      onClick={handleHomeClick}
                       className="flex items-center w-full px-3 py-2 rounded-md transition-colors duration-200 hover:bg-blue-600/30 text-white"
-                      onClick={toggleMenu}
                     >
                       {item.icon}
                       <span className="ml-2">{item.title}</span>
