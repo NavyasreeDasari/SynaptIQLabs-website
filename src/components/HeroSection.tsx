@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import robotVideo from '../assets/back_video.mp4';
+import robotVideo from '../assets/vid.mp4';
 import VideoBackground from './VideoBackground';
 
 const HeroSection: React.FC = () => {
@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
           >
-            Register
+            Register for Free Demo Class
           </Link>
         </div>
       </div>

@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 
-
-
-// Import your 15 images here
 import img1 from '../assets/images/img1.jpg';
-import img2 from '../assets/images/img2.jpg';
+import img2 from '../assets/images/img14.jpg';
 import img3 from '../assets/images/img3.jpg';
 import img4 from '../assets/images/img4.jpg';
 import img5 from '../assets/images/img5.jpg';
@@ -28,13 +24,14 @@ const images = [
 ];
 
 const TransformingSection = () => {
-  const repeatedImages = [...images, ...images]; // Repeat for seamless marquee effect
+  const repeatedImages = [...images, ...images]; // Duplicate for looping
 
   return (
     <section className="py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4 text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-          Transforming Young Minds Into <span className="text-blue-600">Innovators</span>
+          Transforming Young Minds Into{' '}
+          <span className="text-blue-600">Innovators</span>
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
           Our approach blends imagination with education, empowering students to build a strong foundation
@@ -44,7 +41,7 @@ const TransformingSection = () => {
 
       {/* Scrolling Marquee */}
       <div className="relative w-full overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
+        <div className="flex animate-marquee whitespace-nowrap w-[200%]">
           {repeatedImages.map((img, index) => (
             <div
               key={index}

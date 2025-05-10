@@ -22,30 +22,38 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                  ProjectHub
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses/robospark-juniors" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+  <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+  <ul className="space-y-2">
+    {/* Scrolls to Home section on the same page */}
+    <li>
+      <a href="#home" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+        Home
+      </a>
+    </li>
+
+    {/* Navigates to the ProjectHub route */}
+    <li>
+      <Link to="/project-hub" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+        ProjectHub
+      </Link>
+    </li>
+
+    {/* Navigates to a course page */}
+    <li>
+      <Link to="/courses" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+        Courses
+      </Link>
+    </li>
+
+    {/* Navigates to Contact route (replace with correct route if needed) */}
+    <li>
+      <Link to="/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+        Contact
+      </Link>
+    </li>
+  </ul>
+</div>
+
 
           {/* Contact Info */}
           <div>
@@ -53,17 +61,16 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-blue-400 flex-shrink-0 mt-1" />
-                <span className="text-gray-400">3rd floor, 25/529, Rd Number 1, opp. GHMC park, above HDFC Bank,
-                   Kukatpally Housing Board Colony, Kukatpally, Hyderabad, Telangana 500072
+                <span className="text-gray-400">3rd floor, 25/529, Rd Number 1, opp. GHMC park, above HDFC Bank, Kukatpally Housing Board Colony, Kukatpally, Hyderabad, Telangana 500072 
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-blue-400 flex-shrink-0" />
-                <span className="text-gray-400">+91 8639189175</span>
+                <span className="text-gray-400">+91 8639189175</span> 
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-blue-400 flex-shrink-0" />
-                <span className="text-gray-400">info@synaptiq.in</span>
+                <span className="text-gray-400">info@synaptiq.in </span> 
               </li>
             </ul>
           </div>
@@ -72,6 +79,14 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
+              <a href="https://www.instagram.com/synaptiqlabs/" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <Instagram size={20} />
+                <span className="sr-only">Instagram</span>
+              </a>
+              <a href="https://www.linkedin.com/company/synaptiqlabs/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                <Linkedin size={20} />
+                <span className="sr-only">LinkedIn</span>
+              </a>
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 <Facebook size={20} />
                 <span className="sr-only">Facebook</span>
@@ -80,15 +95,6 @@ const Footer: React.FC = () => {
                 <Twitter size={20} />
                 <span className="sr-only">Twitter</span>
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                <Instagram size={20} />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                <Linkedin size={20} />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-
             </div>
           </div>
         </div>
