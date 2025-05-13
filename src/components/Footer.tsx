@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-2">
               
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                SynaptIQ Labs
+                NexMinds
               </span>
             </div>
             <p className="text-gray-400 text-sm max-w-xs">
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} SynaptIQ Labs. All rights reserved.
+            &copy; {new Date().getFullYear()} NexMinds. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link to="/" className="text-gray-500 text-sm hover:text-gray-400 transition-colors duration-200">

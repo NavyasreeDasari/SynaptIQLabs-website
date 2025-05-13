@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Notebook as Robot, Info, BookOpen, Phone, Menu, X } from 'lucide-react';
-import logo from '../assets/icon.png';
+import logo from '../assets/logo.png';
 
 interface NavItem {
   id: string;
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
-              <img src={logo} alt="Logo" className="h-10" />
+              <img src={logo} alt="Logo" className="h-8" />
             </div>
 
             <button
