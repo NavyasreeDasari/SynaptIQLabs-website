@@ -38,13 +38,9 @@ const navItems: NavItem[] = [
   },
   {
     id: 'contact',
-    title: 'Contact',
+    title: 'Reach Out Us',
     icon: <Phone size={20} />,
-    dropdownItems: [
-      { title: 'Get in Touch', link: '/' },
-      { title: 'Locations', link: '/' },
-      { title: 'Support', link: '/' },
-    ],
+    link: '/reach-out-us',
   },
 ];
 
@@ -87,7 +83,7 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
-              <img src={logo} alt="Logo" className="h-8" />
+              <img src={logo} alt="Logo" className="h-10" />
             </div>
 
             <button

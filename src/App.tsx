@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import CourseSection from './components/CoursesSection';
 import CoursePage from './pages/CoursePage';
 import ProjectHub from './pages/ProjectHub';
+import ReachOutPage from './pages/ReachOutPage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="courses" element={<CourseSection />} />
         <Route path="courses/:courseSlug" element={<CoursePage />} />
         <Route path="project-hub" element={<ProjectHub />} />
+        <Route path="reach-out-us" element={<ReachOutPage />} />
       </Route>
     </Routes>
   );
