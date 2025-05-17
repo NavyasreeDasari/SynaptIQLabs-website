@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <VideoBackground videoUrl={videoUrl}>
-      <div id="home" className="container mx-auto px-4 h-full flex items-center pt-20">
+      <div id="home" className="container mx-auto px-4 h-full flex items-center pt-10">
         <div className="max-w-xl text-white text-center sm:text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
             <span className="block">Build The</span>

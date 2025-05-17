@@ -148,6 +148,13 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
+      {/* Marquee bar - part of fixed header */}
+      <div className="bg-gradient-to-r from-blue-100 to-purple-100 h-10 flex items-center overflow-hidden">
+        <marquee className="text-blue-800 font-semibold text-sm md:text-base tracking-wide">
+          Raising AI - Making Automations - Navigating Aspirations
+        </marquee>
+      </div>
+
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="lg:hidden bg-black/95 backdrop-blur-sm text-white">

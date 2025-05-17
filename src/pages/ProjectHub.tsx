@@ -5,6 +5,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+
+import planningImage from '../assets/images/planing.jpg';
+import embeddedImage from '../assets/images/embeded.jpg';
+import iotImage from '../assets/images/iot.jpg';
+import mlImage from '../assets/images/ml.jpg';
+
+
 import project1 from '../assets/videos/farmingRobot.mp4';
 import project2 from '../assets/videos/climbingRobot.mp4';
 import project3 from '../assets/videos/faceRecognition.mp4';
@@ -16,6 +23,7 @@ import project7 from '../assets/videos/smartHelmet.mp4';
 const cards = [
   {
     name: 'Project Ideation & Planning',
+    image: planningImage,
     points: [
       'Select topics aligned with industry trends',
       'Define problem statements and objectives',
@@ -24,6 +32,7 @@ const cards = [
   },
   {
     name: 'Embedded Systems Development',
+    image: embeddedImage,
     points: [
       'Arduino, ESP32, STM32 coding',
       'Sensor & actuator integration',
@@ -32,6 +41,7 @@ const cards = [
   },
   {
     name: 'IoT Project Support',
+    image: iotImage,
     points: [
       'IoT architecture & cloud integration',
       'App & data connectivity',
@@ -40,6 +50,7 @@ const cards = [
   },
   {
     name: 'Machine Learning Integration',
+    image: mlImage,
     points: [
       'Data collection & preprocessing',
       'Model training (TensorFlow, Scikit-learn)',
@@ -47,6 +58,7 @@ const cards = [
     ],
   },
 ];
+
 
 const videos = [
   { title: 'Farming Robot', file: project1 },
@@ -61,7 +73,7 @@ const videos = [
 const ProjectHub = () => {
   return (
     <div className="py-16 px-4 bg-gray-100 min-h-screen">
-      {/* 🔧 Hero Section */}
+      {/*  Hero Section */}
       <h1 className="text-3xl font-bold text-center text-shadow text-blue-700 mb-6 pt-10 text-shadow">
          Project Support Hub for Embedded Systems, IoT & ML
       </h1>
@@ -69,37 +81,40 @@ const ProjectHub = () => {
         End-to-end help for academic and innovative hardware projects. From ideas to real systems, we help students and makers build.
       </p>
 
-      {/* 💡 What We Offer */}
-      <h2 className="text-2xl font-semibold text-center text-blue-700 mb-10">💡 What We Offer</h2>
+      {/*  What We Offer */}
+      <h2 className="text-2xl font-semibold text-center text-blue-700 mb-10"> What We Offer</h2>
       <div className="flex flex-wrap justify-center gap-10">
-        {cards.map((card, idx) => (
-          <div
-            key={idx}
-            className="relative w-[280px] h-[280px] [perspective:1000px] group"
-          >
-           <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-  {/* Front - show title */}
-  <div className="absolute w-full h-full bg-white rounded-xl shadow-lg flex items-center justify-center p-6 backface-hidden">
-    <h3 className="text-xl font-bold text-blue-700 text-center">{card.name}</h3>
-  </div>
+  {cards.map((card, idx) => (
+    <div
+      key={idx}
+      className="relative w-[280px] h-[280px] [perspective:1000px] group"
+    >
+      <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        
+        {/* Front */}
+        <div className="absolute w-full h-full bg-white rounded-xl shadow-lg flex flex-col items-center justify-center p-4 backface-hidden">
+          <img src={card.image} alt={card.name} className="h-20 mb-4 object-contain" />
+          <h3 className="text-xl font-bold text-blue-700 text-center">{card.name}</h3>
+        </div>
 
-  {/* Back - show points */}
-  <div className="absolute w-full h-full bg-blue-700 text-white rounded-xl p-6 [transform:rotateY(180deg)] backface-hidden">
-    <ul className="list-disc pl-4 space-y-2 text-sm">
-      {card.points.map((point, i) => (
-        <li key={i}>{point}</li>
-      ))}
-    </ul>
-  </div>
+        {/* Back */}
+        <div className="absolute w-full h-full bg-blue-700 text-white rounded-xl p-6 [transform:rotateY(180deg)] backface-hidden">
+          <ul className="list-disc pl-4 space-y-2 text-sm">
+            {card.points.map((point, i) => (
+              <li key={i}>{point}</li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  ))}
 </div>
 
-          </div>
-        ))}
-      </div>
 
-      {/* 🎥 Projects Section */}
+      {/*  Projects Section */}
       <section className="mt-24">
-        <h2 className="text-4xl font-bold text-center text-blue-700 mb-6">🎥  Projects</h2>
+        <h2 className="text-4xl font-bold text-center text-blue-700 mb-6"> Projects</h2>
         <p className="text-center text-gray-600 mb-10 text-lg max-w-2xl mx-auto">
           Explore real-world hardware projects built by students and innovators using Embedded Systems, IoT, and Machine Learning.
         </p>
